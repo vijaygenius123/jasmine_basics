@@ -14,7 +14,7 @@
 
 describe(`${User.name} Class`, function () {
 
-    describe('Default Values', function () {
+    xdescribe('Default Values', function () {
         let model
         beforeEach(() => {
             const data = {}
@@ -36,7 +36,7 @@ describe(`${User.name} Class`, function () {
 });
 
 
-fdescribe('get fullName', function () {
+describe('get fullName', function () {
 
     it('should return only first and last name if middleName is empty', function () {
         const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'})
