@@ -33,18 +33,19 @@ describe(`${User.name} Class`, function () {
         });
     });
 
-    describe('get fullName', function () {
-
-        it('should return only first and last name if middleName is empty', function () {
-            const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'})
-            expect(model.fullName).toBe('Vijayaraghavan Sundararaman');
-        });
-
-        it('should return first middle and last name if middleName exists', function () {
-            const model = new User({firstName: 'Rock', middleName: 'Dwayne', lastName: 'Johnson'})
-            expect(model.fullName).toBe('Rock D. Johnson');
-        });
-
-    })
-
 });
+
+
+fdescribe('get fullName', function () {
+
+    it('should return only first and last name if middleName is empty', function () {
+        const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'})
+        expect(model.fullName).toBe('Vijayaraghavan Sundararaman');
+    });
+
+    it('should return first middle and last name if middleName exists', function () {
+        const model = new User({firstName: 'Rock', middleName: 'Dwayne', lastName: 'Johnson'})
+        expect(model.fullName).toBe('Rock D. Johnson');
+    });
+
+})
