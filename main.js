@@ -67,5 +67,4 @@ describe('Display Name', function () {
         model.sayMyName();
         expect(window.alert).toHaveBeenCalledWith('Vijay S');
     });
-
 });
