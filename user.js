@@ -17,4 +17,8 @@ class User{
             return `${this.firstName} ${this.lastName}`;
         }
     }
+
+     sayMyName(){
+       alert(this.fullName)
+    }
 }

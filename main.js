@@ -14,7 +14,7 @@
 
 describe(`${User.name} Class`, function () {
 
-    xdescribe('Default Values', function () {
+    describe('Default Values', function () {
         let model
         beforeEach(() => {
             const data = {}
@@ -48,4 +48,24 @@ describe('get fullName', function () {
         expect(model.fullName).toBe('Rock D. Johnson');
     });
 
+
 })
+
+describe('Display Name', function () {
+
+    it('should alert the user with name', function () {
+        const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'})
+        spyOn(window, 'alert');
+        model.sayMyName()
+        expect(window.alert).toHaveBeenCalled();
+        expect(window.alert).toHaveBeenCalledWith("Vijayaraghavan Sundararaman");
+    });
+
+    it('should have been called with right arguments', function () {
+        const model = new User({firstName: "Vijay", lastName: "S"});
+        spyOn(window, 'alert');
+        model.sayMyName();
+        expect(window.alert).toHaveBeenCalledWith('Vijay S');
+    });
+
+});
