@@ -68,3 +68,35 @@ describe('Display Name', function () {
         expect(window.alert).toHaveBeenCalledWith('Vijay S');
     });
 });
+
+/*  Unit Testing: Spies Challenge
+*
+*   1. Use a spy and test the method getCodeName() fully
+*   2. You will need to use spyOn and toHaveBeenCalledWith()
+*   3. HINT: you will need to chain the spy
+*    example: spyOn(object, 'key').and.returnValue(value)
+*/
+
+describe('getCodeName', function (){
+
+    it('should return TESTING GOD! when confirmed', function () {
+        const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'});
+        spyOn(window, 'confirm').and.returnValue(true);
+        const result = model.getCodeName();
+        expect(result).toBe('TESTING GOD!')
+    });
+
+    it('should return "Scrub skipping tests in his best friend\'s ride!" ', function () {
+        const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'});
+        spyOn(window, 'confirm').and.returnValue(false);
+        const result = model.getCodeName();
+        expect(result).toBe('Scrub skipping tests in his best friend\'s ride!')
+    });
+
+    it('should should ask user if they are a testing god ', function () {
+        const model = new User({firstName: 'Vijayaraghavan', lastName: 'Sundararaman'});
+        spyOn(window, 'confirm').and.returnValue(true);
+        model.getCodeName();
+        expect(window.confirm).toHaveBeenCalledWith('Are you a testing god?')
+    });
+})
