@@ -3,11 +3,15 @@ class User{
     firstName;
     middleName;
     lastName;
+    id;
+    userService;
 
-    constructor(data ={}) {
+    constructor(data, userService) {
         this.firstName = data.firstName || '';
         this.middleName = data.middleName || '';
         this.lastName = data.lastName || '';
+        this.id = data.id;
+        this.userService = userService;
     }
 
     get fullName(){
@@ -29,5 +33,9 @@ class User{
         } else {
             return `Scrub skipping tests in his best friend's ride!`;
         }
+    }
+
+    async getMyFullUserData(){
+        return this.userService.getUserById(this.id);
     }
 }
