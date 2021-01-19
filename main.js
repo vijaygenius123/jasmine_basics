@@ -100,3 +100,35 @@ describe('getCodeName', function (){
         expect(window.confirm).toHaveBeenCalledWith('Are you a testing god?')
     });
 })
+
+describe('Mocking userService', function (){
+
+    let model
+    let mockUserService;
+    beforeEach(() => {
+        mockUserService = {
+            lastId: null,
+            user: {},
+            getUserById(id){
+                this.lastId = id;
+                return this.user
+            }
+        }
+        const data = {firstName: "Vijay", lastName: "S",id: 1}
+        model = new User(data, mockUserService)
+    })
+
+    it('should get user by id', async function () {
+            mockUserService.lastId = null;
+            mockUserService.user = new User({
+                firstName: "John",
+                lastName: "Cena",
+                id: 2
+            })
+
+        const result = await model.getMyFullUserData()
+
+        expect(mockUserService.lastId).toBe(1);
+    });
+
+})
