@@ -20,6 +20,11 @@ describe(`${User.name} Class`, function () {
             const data = {}
             model = new User(data);
         })
+
+        it('should exists', function () {
+            expect(User).toBeDefined();
+        });
+
         it('should default firstName to empty ', function () {
             expect(model.firstName).toBe('');
         });
