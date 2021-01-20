@@ -40,6 +40,18 @@ describe(`${User.name} Class`, function () {
 
 });
 
+describe('addiaional matcher', function (){
+    it('should get full name pieces', function () {
+        const firstName = "Rock"
+        const middleName = "Dwayne"
+        const lastName = "Johnson"
+
+        model = new User({firstName, middleName, lastName});
+
+        expect(model.fullNamePieces).toEqual([firstName, middleName, lastName])
+
+    });
+})
 
 describe('get fullName', function () {
 

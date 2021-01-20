@@ -38,4 +38,8 @@ class User{
     async getMyFullUserData(){
         return this.userService.getUserById(this.id);
     }
+
+    get fullNamePieces() {
+        return [this.firstName, this.middleName, this.lastName];
+    }
 }
